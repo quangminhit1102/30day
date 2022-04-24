@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+  --primary-color: #0075ff;
+}
+i {
+  cursor: pointer;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.player {
+  width: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+.player:hover .player__controls {
+  transform: none;
+}
+.player__video {
+  width: 100%;
+}
+.player__controls {
+  padding: 0px 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transform: translateY(100%);
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+  color: white;
+  transition: 0.5s ease, fade_in 0.5s ease;
+}
+.player__progress {
+  height: 10px;
+  flex: 1;
+  background-color: #fff;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.player__progress__filled {
+  height: inherit;
+  background-color: var(--primary-color);
+  width: 0%;
+}
+.player__controls > * {
+  margin: 5px;
+}
+button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+input {
+  cursor: pointer;
+}
+.player__button {
+  font-size: 20px;
+}
+
+video {
+  object-fit: cover;
+  object-position: center;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hide {
+  display: none;
+}
+i:hover {
+  color: var(--primary-color);
+  font-size: 20px;
+}
+.full-screen {
+  width: 100%;
+  height: 100vh;
+}

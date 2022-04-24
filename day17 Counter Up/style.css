@@ -1,0 +1,28 @@
+*{
+    margin: 0;padding: 0;
+    font-family: sans-serif;
+}
+body
+{
+    height: 100vh;
+    background-color: #8a66b4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.counter
+{
+    background-color: #6b38b6;
+	margin: 30px;
+	color: white;
+	padding: 20px 40px;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 40px;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.counter p
+{
+    font-size: 18px;
+    margin-bottom: 15px;
+}

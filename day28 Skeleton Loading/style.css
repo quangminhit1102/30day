@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  background-color: #b1d9d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card {
+  margin-bottom: 15px;
+  background-color: #fff;
+  width: 700px;
+  padding: 20px;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.card__img {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card__info {
+  flex: 1;
+  padding-left: 25px;
+}
+.card__info h2 {
+  height: 40px;
+  margin-bottom: 5px;
+}
+.card__info p {
+  margin-bottom: 30px;
+  height: 80px;
+}
+.card__info button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  min-width: 100px;
+  height: 40px;
+}
+.card__info button:hover {
+  background-color: rgb(137, 134, 134);
+}
+.loading {
+  position: relative;
+  background-color: #b8b8b8 !important;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: loading 1s infinite;
+}
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.loading2 {
+  position: relative;
+  background-color: #b8b8b8 !important;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 9999;
+}
+.loading2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(226, 226, 226);
+  animation: opacity 1s ease infinite;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

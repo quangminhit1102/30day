@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+}
+body {
+  height: 100vh;
+  background: #17a2b8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert {
+  padding: 10px 40px;
+  background: #fff;
+  color: #17a2b8;
+  font-size: 40px;
+  font-weight: 500;
+  border-radius: 12px;
+}
+.hide {
+  display: none;
+}
+.box {
+  width: 100vw;
+}
+.box .result {
+  border: 7px solid #fff;
+  border-radius: 50%;
+  font-size: 70px;
+  color: #fff;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 60px;
+}
+.detail {
+  display: flex;
+  justify-content: space-around;
+}
+.card {
+  border-radius: 7px;
+  overflow: hidden;
+  text-align: center;
+}
+.card p:first-child {
+  background-color: #78c0c9;
+  color: #fff;
+}
+.card p:last-child {
+  background-color: #fff;
+  color: #000;
+}
+.location p:last-child,
+.key p:last-child,
+.code p:last-child,
+.which p:last-child {
+  background-color: #fff;
+  color: #000;
+}
+.card p {
+  padding: 10px;
+  font-size: 20px;
+}
+.detail .card {
+  width: 300px;
+}

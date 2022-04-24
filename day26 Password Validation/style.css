@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  height: 100vh;
+  background-image: linear-gradient(145deg, #569377 50%, #dbede5 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.input__field {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.input__field input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 0px 5px 0px 5px;
+}
+form .btn {
+  margin-left: 10px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #48735f;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+.validator {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #48735f;
+  border-radius: 10px;
+
+  color: #fff;
+}
+.validator > * {
+  padding: 10px 20px;
+}
+.validator p::before {
+  font-family: "Font Awesome 6 Free";
+  content: "";
+  content: "\f00d";
+  font-weight: 900;
+  width: 30px;
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+}
+.validator p.valid {
+  color: rgba(255, 255, 255, 0.5);
+}
+.validator p.valid::before {
+  content: "\f00c";
+}
+form i {
+  max-width: 18px;
+}
+/* hide eye Toggle EDGE */
+::-ms-reveal {
+  display: none;
+}

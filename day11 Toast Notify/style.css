@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --success: rgb(0, 128, 0);
+  --warning: rgb(255, 165, 0);
+  --error: rgb(255, 0, 0);
+  --success-light: rgba(0, 128, 0, 0.4);
+  --warning-light: rgba(255, 165, 0, 0.4);
+  --error-light: rgba(255, 0, 0, 0.4);
+}
+.control button {
+  padding: 8px 16px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.control .success {
+  background: var(--success);
+}
+.control .warning {
+  background: var(--warning);
+}
+.control .error {
+  background: var(--error);
+}
+#toasts {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.toast {
+  display: flex;
+  padding: 20px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 18px;
+  align-items: center;
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+  animation: slide_show 1s ease forwards;
+  margin-bottom: 10px;
+}
+.toast i {
+  margin-right: 20px;
+  font-size: 25px;
+}
+.toast .countdown {
+  position: absolute;
+  
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  animation: count_down 4s linear forwards;
+}
+
+.toast.success {
+  background: var(--success-light);
+  border-left: 6px solid var(--success);
+}
+.toast.success .countdown
+{
+  border-bottom: 4px solid var(--success);
+}
+.toast.error .countdown
+{
+  border-bottom: 4px solid var(--error);
+}
+.toast.warning .countdown
+{
+  border-bottom: 4px solid var(--warning);
+}
+.toast.warning {
+  background: var(--warning-light);
+  border-left: 6px solid var(--warning);
+}
+.toast.error {
+  background: var(--error-light);
+  border-left: 6px solid var(--error);
+}
+@keyframes count_down {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes slide_show {
+	0% {
+		transform: translateX(100%);
+	}
+	40% {
+		transform: translateX(-10%);
+	}
+	80% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-10px);
+	}
+}
+
+@keyframes  slide_hide {
+	0% {
+		transform: translateX(-10px);
+	}
+	20% {
+		transform: translateX(0%);
+	}
+	50% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(120%);
+	}
+}

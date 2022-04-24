@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2 class="title">Search Tag</h2>
+      <ul class="content">
+        <li>
+          Hello
+          <i class="uit uit-multiply" onclick="removeTag(this, '0')"></i>
+        </li>
+        <input
+          id="input-tag"
+          type="text"
+          placeholder="Type and enter"
+          spellcheck="false"
+          maxlength="15"
+        />
+      </ul>
+      <button class="btn-removeAll">Remove All</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

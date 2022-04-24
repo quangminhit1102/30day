@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+body.hot {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+		url(hot.png) no-repeat center/cover;
+}
+
+body.hot .weather-card {
+	background-image: url(hot.png);
+}
+
+body.cold {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+		url(cold.png) no-repeat center/cover;
+}
+
+body.cold .weather-card {
+	background-image: url(cold.png);
+}
+.weather-card {
+  min-width: 350px;
+  height: 600px;
+  border-radius: 10px;
+  padding: 30px 20px;
+  background: no-repeat center/cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.weather-card input {
+  padding: 10px 20px;
+  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.44);
+  transition: ease 0.5s;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+.weather-card input:focus {
+  border-radius: unset;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.weather-card .content {
+  text-align: center;
+}
+.content .name {
+  white-space: nowrap;
+  font-size: 35px;
+  text-shadow: 2px 2px rgb(0 0 0 / 50%);
+  color: #fff;
+}
+.content .time {
+  color: #fff;
+  margin: 6px 0;
+}
+.content .temperature {
+  font-size: 65px;
+  font-weight: 800;
+  margin: 20px 0 30px;
+  padding: 20px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 2px 2px 0 2px rgb(0 0 0 / 50%);
+  text-shadow: 4px 4px rgb(0 0 0 / 60%);
+  border-radius: 15px;
+  display: inline-block;
+}
+.content .short-desc {
+  color: #fff;
+  font-size: 40px;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+}
+.content .more-desc {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.content .visibility,
+.content .wind,
+.content .cloud { /*=> .content .more-desc >div */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.more-desc span
+{
+  margin-top: 15px;
+}
