@@ -5,7 +5,7 @@ var minutes = document.querySelector("#minutes");
 var seconds = document.querySelector("#seconds");
 
 const now = new Date();
-const countToDate = new Date(2023, 22, 1);
+const countToDate = new Date(2025, 0, 29);
 console.log(now + "\n" + countToDate);
 const countdown = () => {
   const now = new Date().getTime();
@@ -28,10 +28,10 @@ const countdown = () => {
     clearInterval(countdownInterval);
   }
 };
-
-year.innerHTML = now.getFullYear();
-countdown();
 const countdownInterval = setInterval(countdown, 1000);
+
+year.innerHTML = now.getFullYear() + 1;
+countdown();
 var fireworkContainer = document.querySelector(".firework-container");
 const fireworks = new Fireworks(fireworkContainer, {
   speed: 0.5,
