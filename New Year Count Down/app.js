@@ -34,11 +34,11 @@ year.innerHTML = now.getFullYear() + 1;
 countdown();
 var fireworkContainer = document.querySelector(".firework-container");
 const fireworks = new Fireworks(fireworkContainer, {
-  speed: 0.5,
+  speed: 0.01,
   acceleration: 1.05,
   friction: 1,
   gravity: 4,
-  particles: 400,
-  explosion: 20,
+  particles: 150,
+  explosion: 50,
 });
 fireworks.start();

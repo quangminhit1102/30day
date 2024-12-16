@@ -6,9 +6,9 @@
 }
 
 :root {
-    --txt-color: #fff;
-    --timer-box-bg: #1c2451;
-    --timer-box-txt-bg: #085391;
+  --txt-color: #fff;
+  --timer-box-bg: #1c2451;
+  --timer-box-txt-bg: #085391;
 }
 .content__wrapper {
   position: fixed;
@@ -35,40 +35,68 @@
   font-size: 30px;
 }
 .content__wrapper .year {
-    color: #fff;
-    font-size: 100px;
+  color: #fff;
+  font-size: 100px;
 }
-.timer
-{
-    display: flex;
-    justify-content: space-evenly;
+.timer {
+  display: flex;
+  justify-content: space-evenly;
 }
-.timer .timer-box
-{
-    background-color: var(--timer-box-bg);
-    margin-right: 50px;
+.timer .timer-box {
+  background-color: var(--timer-box-bg);
+  margin-right: 50px;
 }
-.timer-box .timer-box__count
-{
-    --size: 6rem;
+.timer-box .timer-box__count {
+  --size: 6rem;
+  width: var(--size);
+  height: var(--size);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.timer-box:last-child {
+  margin-right: 0;
+}
+.timer-box .timer-box__text {
+  background-color: var(--timer-box-txt-bg);
+  padding: 10px 0px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .content__wrapper {
+    text-align: center;
+  }
+  .content__wrapper .header
+  {
+    font-size: 22px;
+  }
+  .content__wrapper .year
+  {
+    font-size: 40px;
+  }
+  .timer {
+    justify-content: center;
+  }
+  .timer .timer-box {
+    margin-right: 15px;
+  }
+  .timer-box:last-child {
+    margin-right: 0;
+  }
+  .timer-box .timer-box__count {
+    --size: 5rem;
     width: var(--size);
     height: var(--size);
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#fff;
-}
-.timer-box:last-child
-{
-    margin-right: 0;
-}
-.timer-box .timer-box__text
-{
-    background-color: var(--timer-box-txt-bg);
-    padding: 10px 0px;
-    text-align: center;
     color: #fff;
-    font-weight: 500;
+  }
+  
 }
-
