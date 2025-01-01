@@ -30,7 +30,7 @@ const countdown = () => {
 };
 const countdownInterval = setInterval(countdown, 1000);
 
-year.innerHTML = now.getFullYear() + 1;
+year.innerHTML = 2025;
 countdown();
 var fireworkContainer = document.querySelector(".firework-container");
 const fireworks = new Fireworks(fireworkContainer, {
