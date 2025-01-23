@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<style>
+    .method1-effect{
+        color: green;
+    }
+    .method2-effect{
+        color: red;
+    }
+    .method3-effect
+    {
+        color:  yellow;
+    }
+</style>
+<html>
+<body>
+    <!-- Event Delegation Example -->
+    <div id="dynamic-list">
+        <!-- Initial dynamic items can be added here -->
+    </div>
+    <button id="add-item-btn">Add Dynamic Item</button>
+
+    <!-- Manual Event Attachment -->
+    <div id="manual-list"></div>
+
+    <!-- Mutation Observer Example -->
+    <div id="observed-list"></div>
+</body>
+<script>
+    // Parent container that will exist when the page loads
+    const parentContainer = document.getElementById('dynamic-list');
+    // const parentContainer = document.getElementById('manual-list');
+    // const parentContainer = document.getElementById('observed-list');
+    
+    // Method 1: Event Delegation (Recommended for Dynamic Elements)
+    document.addEventListener('DOMContentLoaded', () => {
+    // Use event delegation to handle events for dynamically added elements
+    parentContainer.addEventListener('click', (event) => {
+        // Check if the clicked element matches the target selector
+        if (event.target.matches('.dynamic-item')) {
+            console.log('Dynamic item clicked:', event.target.textContent);
+            
+            // Example of additional actions
+            event.target.classList.toggle('method1-effect');
+        }
+    });
+
+    // Function to add new dynamic elements
+    function addDynamicElement(text) {
+        const newElement = document.createElement('div');
+        newElement.classList.add('dynamic-item');
+        newElement.textContent = text;
+        parentContainer.appendChild(newElement);
+    }
+
+    // Example of adding dynamic elements
+    document.getElementById('add-item-btn').addEventListener('click', () => {
+        const itemText = `Item ${parentContainer.children.length + 1}`;
+        addDynamicElement(itemText);
+    });
+});
+
+// Method 2: Manual Event Attachment (Less Efficient for Many Dynamic Elements)
+function attachEventToDynamicElement(element) {
+    element.addEventListener('click', (event) => {
+        console.log('Directly attached event:', event.target.textContent);
+        event.classList.toggle("method2-effect");
+    });
+}
+
+// Example of manually attaching events when creating elements
+function createManualDynamicElement(text) {
+    const element = document.createElement('div');
+    element.textContent = text;
+    element.classList.add('manual-dynamic-item');
+    
+    // Attach event directly to the new element
+    attachEventToDynamicElement(element);
+    
+    document.getElementById('manual-list').appendChild(element);
+}
+
+// Method 3: Mutation Observer (Advanced Dynamic Handling)
+function setupMutationObserver() {
+    const targetNode = document.getElementById('observed-list');
+    
+    // Configuration of the observer
+    const config = { 
+        childList: true,  // Observe direct children
+        subtree: true     // Observe all descendants
+    };
+
+    // Callback function to execute when mutations are observed
+    const callback = (mutationsList, observer) => {
+        console.log(mutationsList);
+        console.log(observer);
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        // Add special handling for newly added elements
+                        node.addEventListener('click', () => {
+                            node.classList.toggle('method3-effect');
+                        });
+                    }
+                });
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+}
+
+// Initialize Mutation Observer
+document.addEventListener('DOMContentLoaded', setupMutationObserver);
+</script>
+</html>
