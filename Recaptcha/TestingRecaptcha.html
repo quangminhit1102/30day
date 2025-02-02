@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reCAPTCHA v2 Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+
+      .error-message {
+        color: red;
+        display: none;
+        margin-top: 10px;
+      }
+
+      .success-message {
+        color: green;
+        display: none;
+        margin-top: 10px;
+      }
+
+      .g-recaptcha {
+        margin: 20px 0;
+      }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <form id="contactForm" onsubmit="return validateForm(event)" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <div
+          class="g-recaptcha"
+          data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+        ></div>
+      </div>
+
+      <button type="submit" id="submitButton">Submit Form</button>
+
+      <div id="errorMessage" class="error-message">
+        Please complete the reCAPTCHA verification.
+      </div>
+      <div id="successMessage" class="success-message">
+        Form submitted successfully!
+      </div>
+    </form>
+
+    <script>
+      function validateForm(event) {
+        event.preventDefault();
+
+        const submitButton = document.getElementById("submitButton");
+        const errorMessage = document.getElementById("errorMessage");
+        const successMessage = document.getElementById("successMessage");
+
+        // Hide any existing messages
+        errorMessage.style.display = "none";
+        successMessage.style.display = "none";
+
+        // Get the reCAPTCHA response
+        const recaptchaResponse = grecaptcha.getResponse();
+
+        if (!recaptchaResponse) {
+          errorMessage.style.display = "block";
+          return false;
+        }
+
+        // Disable submit button while processing
+        submitButton.disabled = true;
+
+        // Simulate form submission (replace with your actual submission logic)
+        setTimeout(() => {
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            recaptchaToken: recaptchaResponse,
+          };
+
+          console.log("Form submitted:", formData);
+
+          // Show success message
+          successMessage.style.display = "block";
+
+          // Reset form and reCAPTCHA
+          document.getElementById("contactForm").reset();
+          grecaptcha.reset();
+
+          // Re-enable submit button
+          submitButton.disabled = false;
+        }, 1000);
+
+        return false;
+      }
+    </script>
+  </body>
+</html>
