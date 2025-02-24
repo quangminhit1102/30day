@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #7f00ff, #e100ff);
+}
+
+.loginCard {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.loginCard h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.inputGroup label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  color: #666;
+}
+
+.inputGroup input:focus ~ label,
+.inputGroup input:valid ~ label {
+  top: -20px;
+  font-size: 0.8rem;
+  color: #7f00ff;
+}
+
+.inputGroup input:focus {
+  border-bottom: 2px solid #7f00ff;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #7f00ff, #e100ff);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.loginButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.footer a {
+  color: #7f00ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
