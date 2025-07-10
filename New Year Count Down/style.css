@@ -71,12 +71,10 @@
   .content__wrapper {
     text-align: center;
   }
-  .content__wrapper .header
-  {
+  .content__wrapper .header {
     font-size: 22px;
   }
-  .content__wrapper .year
-  {
+  .content__wrapper .year {
     font-size: 40px;
   }
   .timer {
@@ -92,11 +90,10 @@
     --size: 5rem;
     width: var(--size);
     height: var(--size);
-    font-size: 50px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
   }
-  
 }
